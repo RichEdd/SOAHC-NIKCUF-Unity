@@ -1,0 +1,58 @@
+# SOAHC-NIKCUF Unity Project Setup Notes
+
+## Project Overview
+- Creating a new Unity project based on an existing TypeScript project
+- Setting up GitHub integration and optimizing our work environment
+
+## Git Repository Setup
+- Repository already exists at https://github.com/RichEdd/SOAHC-NIKCUF-Unity
+- Encountered and resolved several Git issues:
+  1. "Destination path already exists" - Attempted to clone into non-empty directory
+  2. "Please commit your changes before merging" - Had uncommitted local changes
+  3. "Refusing to merge unrelated histories" - Local and remote repositories had different histories
+- Used `git pull origin main --allow-unrelated-histories` to merge the repositories
+
+## Unity Project Setup
+1. Unity Project Configuration:
+   - Choose appropriate template (3D, 2D, HDRP, URP)
+   - Set up with latest LTS Unity version for stability
+
+2. TypeScript Integration Options:
+   - Unity TypeScript Transpiler
+   - Puerts (TypeScript runtime for Unity)
+   - Bridge.NET (C# to JavaScript/TypeScript converter)
+
+## Repository Structure
+- Organized project with clear separation:
+  - Unity project in dedicated directory
+  - TypeScript code in its own directory
+  - Shared assets properly managed
+
+## Workflow Optimization
+1. Git Configuration:
+   - Proper .gitignore for both Unity and TypeScript
+   - Git LFS for large Unity assets
+   - Branch strategy for feature development
+
+2. Development Environment:
+   - VS Code setup with extensions for Unity and TypeScript
+   - Consistent development environment across team members
+   - Linting and formatting tools configuration
+
+3. Collaboration Tools:
+   - GitHub workflow with pull requests
+   - Documentation for team members
+   - Potential CI/CD pipeline setup
+
+## Next Steps
+1. Complete Unity project setup in repository
+2. Configure TypeScript integration
+3. Set up proper testing framework
+4. Document development workflow for team
+5. Implement initial project structure
+
+## Notes on Git Issues Encountered
+- When working with existing repositories, always pull before making changes
+- Use `git status` to check for uncommitted changes
+- For repositories with different histories, use `--allow-unrelated-histories` flag
+- Consider using Git GUI tools for easier repository management 
