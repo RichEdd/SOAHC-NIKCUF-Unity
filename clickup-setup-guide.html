@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClickUp Container Tasks Setup Guide</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1 {
+            color: #7b68ee;
+            border-bottom: 2px solid #7b68ee;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #5d4aaa;
+            margin-top: 30px;
+        }
+        .task {
+            background-color: #f5f5f5;
+            border-left: 4px solid #7b68ee;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        .task h3 {
+            margin-top: 0;
+            color: #7b68ee;
+        }
+        .task-id {
+            font-family: monospace;
+            background-color: #e0e0e0;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        .description {
+            margin-top: 10px;
+        }
+        .commit-example {
+            font-family: monospace;
+            background-color: #e0e0e0;
+            padding: 10px;
+            border-radius: 4px;
+            display: block;
+            margin: 10px 0;
+        }
+        .steps {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+        .steps ol {
+            margin-bottom: 0;
+        }
+        .note {
+            background-color: #fff8dc;
+            padding: 10px;
+            border-left: 4px solid #ffd700;
+            margin: 15px 0;
+            border-radius: 0 4px 4px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>ClickUp Container Tasks Setup Guide for SOAHC-NIKCUF-Unity</h1>
+    
+    <p>This guide will help you set up container tasks in ClickUp for organizing your Unity project commits.</p>
+    
+    <div class="steps">
+        <h2>Setup Steps</h2>
+        <ol>
+            <li>Log in to your ClickUp account</li>
+            <li>Navigate to your workspace</li>
+            <li>Create a new List called "Development Categories"</li>
+            <li>Create the container tasks as described below</li>
+            <li>Pin these tasks to the top of your workspace for easy access</li>
+        </ol>
+    </div>
+
+    <h2>Container Tasks to Create</h2>
+    
+    <div class="task">
+        <h3>Bug Fixes</h3>
+        <p><strong>Suggested ID:</strong> <span class="task-id">TASK-101</span></p>
+        <div class="description">
+            <p><strong>Description:</strong> Container for all bug fix commits. Use this task ID when committing code that fixes bugs, resolves issues, or addresses unexpected behavior.</p>
+            <p><strong>Example commit:</strong></p>
+            <code class="commit-example">git commit -m "Fix player collision detection #TASK-101"</code>
+        </div>
+    </div>
+    
+    <div class="task">
+        <h3>Features</h3>
+        <p><strong>Suggested ID:</strong> <span class="task-id">TASK-102</span></p>
+        <div class="description">
+            <p><strong>Description:</strong> Container for all new feature implementations. Use this task ID when committing code that adds new functionality, systems, or capabilities to the game.</p>
+            <p><strong>Example commit:</strong></p>
+            <code class="commit-example">git commit -m "Add new weapon system #TASK-102"</code>
+        </div>
+    </div>
+    
+    <div class="task">
+        <h3>Refactors</h3>
+        <p><strong>Suggested ID:</strong> <span class="task-id">TASK-103</span></p>
+        <div class="description">
+            <p><strong>Description:</strong> Container for code refactoring and improvements. Use this task ID when committing code that improves structure, readability, or maintainability without changing functionality.</p>
+            <p><strong>Example commit:</strong></p>
+            <code class="commit-example">git commit -m "Refactor enemy AI for better maintainability #TASK-103"</code>
+        </div>
+    </div>
+    
+    <div class="task">
+        <h3>Performance Optimizations</h3>
+        <p><strong>Suggested ID:</strong> <span class="task-id">TASK-104</span></p>
+        <div class="description">
+            <p><strong>Description:</strong> Container for performance-related changes. Use this task ID when committing code that improves game performance, reduces memory usage, or optimizes resource loading.</p>
+            <p><strong>Example commit:</strong></p>
+            <code class="commit-example">git commit -m "Optimize rendering pipeline for better FPS #TASK-104"</code>
+        </div>
+    </div>
+    
+    <div class="task">
+        <h3>UI/UX Improvements</h3>
+        <p><strong>Suggested ID:</strong> <span class="task-id">TASK-105</span></p>
+        <div class="description">
+            <p><strong>Description:</strong> Container for user interface and experience changes. Use this task ID when committing code that enhances the game's UI, menus, HUD, or overall user experience.</p>
+            <p><strong>Example commit:</strong></p>
+            <code class="commit-example">git commit -m "Update main menu layout and animations #TASK-105"</code>
+        </div>
+    </div>
+    
+    <div class="task">
+        <h3>Art & Assets</h3>
+        <p><strong>Suggested ID:</strong> <span class="task-id">TASK-106</span></p>
+        <div class="description">
+            <p><strong>Description:</strong> Container for art-related commits. Use this task ID when committing new or updated art assets, models, textures, or visual effects.</p>
+            <p><strong>Example commit:</strong></p>
+            <code class="commit-example">git commit -m "Add new character models and textures #TASK-106"</code>
+        </div>
+    </div>
+    
+    <div class="task">
+        <h3>Audio</h3>
+        <p><strong>Suggested ID:</strong> <span class="task-id">TASK-107</span></p>
+        <div class="description">
+            <p><strong>Description:</strong> Container for audio-related commits. Use this task ID when committing new or updated sound effects, music, or audio systems.</p>
+            <p><strong>Example commit:</strong></p>
+            <code class="commit-example">git commit -m "Add new background music for forest level #TASK-107"</code>
+        </div>
+    </div>
+    
+    <div class="task">
+        <h3>Documentation</h3>
+        <p><strong>Suggested ID:</strong> <span class="task-id">TASK-108</span></p>
+        <div class="description">
+            <p><strong>Description:</strong> Container for documentation updates. Use this task ID when committing changes to documentation, comments, or README files.</p>
+            <p><strong>Example commit:</strong></p>
+            <code class="commit-example">git commit -m "Update installation instructions in README #TASK-108"</code>
+        </div>
+    </div>
+    
+    <div class="note">
+        <p><strong>Note:</strong> The actual task IDs in ClickUp will be automatically generated and will look different from the suggested IDs above. Once you create the tasks, make note of their actual IDs for use in commit messages.</p>
+    </div>
+    
+    <h2>Additional Tips</h2>
+    <ul>
+        <li>Use ClickUp's "Pin" feature to keep these container tasks easily accessible</li>
+        <li>Consider using different colors for each category to make them visually distinct</li>
+        <li>You can add checklists within each container task to track specific items</li>
+        <li>Use the description field to provide more detailed guidelines for each category</li>
+        <li>Consider setting up ClickUp Automations to update task statuses based on GitHub activity</li>
+    </ul>
+    
+    <div class="note">
+        <p><strong>Remember:</strong> The GitHub integration will automatically link your commits to these tasks when you include the task ID in your commit messages with the # symbol.</p>
+    </div>
+</body>
+</html> 
