@@ -192,31 +192,31 @@ public class PlayerController : MonoBehaviour
         // Horizontal movement
         if (!isWallSliding)
         {
-            rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
+            rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
         }
         else
         {
             // Wall sliding - slow descent
-            rb.velocity = new Vector2(0, Mathf.Clamp(rb.velocity.y, -wallSlideSpeed, float.MaxValue));
+            rb.linearVelocity = new Vector2(0, Mathf.Clamp(rb.linearVelocity.y, -wallSlideSpeed, float.MaxValue));
         }
     }
     
     void Jump()
     {
-        rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+        rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
         isGrounded = false;
         hasDoubleJumped = false;
     }
     
     void DoubleJump()
     {
-        rb.velocity = new Vector2(rb.velocity.x, doubleJumpForce);
+        rb.linearVelocity = new Vector2(rb.linearVelocity.x, doubleJumpForce);
         hasDoubleJumped = true;
     }
     
     void WallJump()
     {
-        rb.velocity = new Vector2(wallJumpDirection.x * wallJumpForce * -facingDirection, wallJumpDirection.y * wallJumpForce);
+        rb.linearVelocity = new Vector2(wallJumpDirection.x * wallJumpForce * -facingDirection, wallJumpDirection.y * wallJumpForce);
         isWallSliding = false;
         hasDoubleJumped = false;
     }
@@ -228,7 +228,7 @@ public class PlayerController : MonoBehaviour
         dashCooldownTimer = dashCooldown;
         
         // Apply dash force
-        rb.velocity = new Vector2(facingDirection * dashForce, 0);
+        rb.linearVelocity = new Vector2(facingDirection * dashForce, 0);
         
         // End dash after a short time
         Invoke("EndDash", 0.2f);

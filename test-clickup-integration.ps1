@@ -96,4 +96,57 @@ if ($pushResponse -eq "y" -or $pushResponse -eq "Y") {
     Write-Host "You can push them later with 'git push'" -ForegroundColor Yellow
 }
 
-Write-Host "`nTest completed!" -ForegroundColor Cyan 
+Write-Host "`nTest completed!" -ForegroundColor Cyan
+
+$token = "pk_132021316_3Y2JWD1NM4GGY3RV63JJ01PFUA9PQCQJ"
+$taskId = "86a7a1dwk"
+$status = "Complete"
+
+$headers = @{
+    "Authorization" = $token
+    "Content-Type" = "application/json"
+}
+
+$body = @{
+    status = $status
+} | ConvertTo-Json
+
+Invoke-RestMethod -Uri "https://api.clickup.com/api/v2/task/$taskId" -Method PUT -Headers $headers -Body $body 
+
+.\update-task-status.ps1 -TaskId "86a7a1dwk" -Status "Complete"
+
+.\test-clickup-integration.ps1 -Operation "UpdateTask" -TaskId "86a7a1dwk" -Status "Complete" 
+
+param(
+    [Parameter(Mandatory=$true)]
+    [string]$TaskId,
+    
+    [Parameter(Mandatory=$true)]
+    [string]$Status
+)
+
+# Set up API access
+$token = "pk_132021316_3Y2JWD1NM4GGY3RV63JJ01PFUA9PQCQJ"
+
+$headers = @{
+    "Authorization" = $token
+    "Content-Type" = "application/json"
+}
+
+$body = @{
+    status = $Status
+} | ConvertTo-Json
+
+# Update task
+Write-Host "Updating task $TaskId to status: $Status" -ForegroundColor Yellow
+try {
+    $response = Invoke-RestMethod -Uri "https://api.clickup.com/api/v2/task/$TaskId" -Method PUT -Headers $headers -Body $body
+    Write-Host "SUCCESS: Task $TaskId updated to status: $Status" -ForegroundColor Green
+    
+    # Display task details
+    Write-Host "`nTask Details:" -ForegroundColor Cyan
+    $taskDetails = Invoke-RestMethod -Uri "https://api.clickup.com/api/v2/task/$TaskId" -Method GET -Headers $headers
+    $taskDetails
+} catch {
+    Write-Host "ERROR: Failed to update task: $_" -ForegroundColor Red
+} 

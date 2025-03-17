@@ -224,5 +224,121 @@ function Main-Menu {
     }
 }
 
+# Search for tasks related to .gitignore
+Write-Host "Searching for tasks related to .gitignore..." -ForegroundColor Cyan
+
+# Get all spaces in the team
+$spaces = Invoke-ClickUpAPI -Endpoint "/team/$teamId/space"
+
+if ($spaces -and $spaces.spaces) {
+    foreach ($space in $spaces.spaces) {
+        Write-Host "Checking space: $($space.name)" -ForegroundColor Yellow
+        
+        # Get all lists in the space
+        $lists = Invoke-ClickUpAPI -Endpoint "/space/$($space.id)/list"
+        
+        if ($lists -and $lists.lists) {
+            foreach ($list in $lists.lists) {
+                Write-Host "  Checking list: $($list.name)" -ForegroundColor Yellow
+                
+                # Get all tasks in the list
+                $tasks = Invoke-ClickUpAPI -Endpoint "/list/$($list.id)/task?include_closed=true"
+                
+                if ($tasks -and $tasks.tasks) {
+                    foreach ($task in $tasks.tasks) {
+                        if ($task.name -like "*gitignore*" -or $task.description -like "*gitignore*") {
+                            Write-Host "`nFound task related to gitignore:" -ForegroundColor Green
+                            Write-Host "  Task ID: $($task.id)" -ForegroundColor Green
+                            Write-Host "  Task Name: $($task.name)" -ForegroundColor Green
+                            Write-Host "  Status: $($task.status.status)" -ForegroundColor Green
+                            Write-Host "  URL: $($task.url)" -ForegroundColor Green
+                            Write-Host "  Description: $($task.description)" -ForegroundColor Green
+                            Write-Host "  Created: $([DateTime]::FromUnixTimeMilliseconds($task.date_created).ToString())" -ForegroundColor Green
+                            Write-Host "  Due Date: $(if ($task.due_date) { [DateTime]::FromUnixTimeMilliseconds($task.due_date).ToString() } else { 'None' })" -ForegroundColor Green
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+Write-Host "`nSearch completed." -ForegroundColor Cyan
+
+# Get the first list ID from the first space
+$spaces = Invoke-ClickUpAPI -Method "GET" -Endpoint "team/$teamId/space"
+if ($spaces) {
+    $firstSpace = $spaces[0]
+    $lists = Invoke-ClickUpAPI -Method "GET" -Endpoint "space/$($firstSpace.id)/list"
+    if ($lists) {
+        $listId = $lists[0].id
+        Write-Host "Using list ID: $listId" -ForegroundColor Green
+    }
+}
+
+# Function to create a new task
+function New-ClickUpTask {
+    param (
+        [string]$Name,
+        [string]$Description,
+        [string]$Status = "Backlog",
+        [string]$ParentTaskId = $null
+    )
+    
+    $body = @{
+        name = $Name
+        description = $Description
+        status = $Status
+    }
+    
+    if ($ParentTaskId) {
+        $body.parent = $ParentTaskId
+    }
+    
+    $jsonBody = $body | ConvertTo-Json
+    
+    Write-Host "Creating new task: $Name" -ForegroundColor Cyan
+    $response = Invoke-ClickUpAPI -Method "POST" -Endpoint "list/$listId/task" -Body $jsonBody
+    
+    if ($response) {
+        Write-Host "Task created successfully!" -ForegroundColor Green
+        Write-Host "Task ID: $($response.id)"
+        Write-Host "Task URL: $($response.url)"
+    }
+}
+
+# Example usage:
+# New-ClickUpTask -Name "New Feature" -Description "Implement new feature" -Status "Backlog"
+
+# Function to create a new task in a container
+function New-ClickUpTaskInContainer {
+    param (
+        [string]$Name,
+        [string]$Description,
+        [string]$ContainerId,
+        [string]$Status = "Backlog"
+    )
+    
+    $body = @{
+        name = $Name
+        description = $Description
+        status = $Status
+        parent = $ContainerId
+    }
+    
+    $jsonBody = $body | ConvertTo-Json
+    
+    Write-Host "Creating new task: $Name in container $ContainerId" -ForegroundColor Cyan
+    $response = Invoke-ClickUpAPI -Method "POST" -Endpoint "/list/$listId/task" -Body $jsonBody
+    
+    if ($response) {
+        Write-Host "Task created successfully!" -ForegroundColor Green
+        Write-Host "Task ID: $($response.id)"
+        Write-Host "Task URL: $($response.url)"
+        return $response
+    }
+    return $null
+}
+
 # Start the menu
 Main-Menu 

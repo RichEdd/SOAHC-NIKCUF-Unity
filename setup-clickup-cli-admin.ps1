@@ -1,0 +1,22 @@
+# ClickUp CLI Setup Script (Admin Instructions)
+# This script provides instructions for setting up the ClickUp CLI with proper configuration
+
+Write-Host "ClickUp CLI Setup Instructions"
+Write-Host "============================="
+Write-Host "`n1. First, please run PowerShell as Administrator"
+Write-Host "2. Then run these commands:"
+Write-Host "`n   npm install -g clickup-cli"
+Write-Host "   echo 'token: pk_132021316_3Y2JWD1NM4GGY3RV63JJ01PFUA9PQCQJ' > `$env:USERPROFILE\.clickup"
+Write-Host "   echo 'team: 9013790997' >> `$env:USERPROFILE\.clickup"
+Write-Host "`n3. After running these commands, close and reopen your terminal"
+Write-Host "4. Test the installation by running: clickup --help"
+Write-Host "`nNote: If you still have permission issues, you may need to:"
+Write-Host "1. Right-click on PowerShell and select 'Run as Administrator'"
+Write-Host "2. Navigate to your user directory: cd `$env:USERPROFILE"
+Write-Host "3. Create the file manually: New-Item -Path .clickup -ItemType File -Force"
+Write-Host "4. Edit the file with Notepad: notepad .clickup"
+Write-Host "5. Add these lines:"
+Write-Host "   token: pk_132021316_3Y2JWD1NM4GGY3RV63JJ01PFUA9PQCQJ"
+Write-Host "   team: 9013790997"
+Write-Host "6. Save and close the file"
+Write-Host "`nWould you like me to provide any additional instructions?" 

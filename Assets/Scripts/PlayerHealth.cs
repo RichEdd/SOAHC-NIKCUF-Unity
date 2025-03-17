@@ -99,7 +99,7 @@ public class PlayerHealth : MonoBehaviour
         Vector2 knockbackDirection = GetKnockbackDirection();
         
         // Apply knockback force
-        rb.velocity = Vector2.zero;
+        rb.linearVelocity = Vector2.zero;
         rb.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
         
         // Wait for knockback duration
@@ -152,7 +152,7 @@ public class PlayerHealth : MonoBehaviour
         // You can add animation triggers here if you have an Animator
         
         // Disable physics
-        rb.velocity = Vector2.zero;
+        rb.linearVelocity = Vector2.zero;
         rb.isKinematic = true;
         GetComponent<Collider2D>().enabled = false;
         

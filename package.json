@@ -1,0 +1,23 @@
+{
+  "name": "soahc-nikcuf-unity",
+  "version": "1.0.0",
+  "description": "A 2D platform fighter game built with Unity, featuring elemental powers and unique combat mechanics. This is a parallel development project alongside the TypeScript/Phaser version.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RichEdd/SOAHC-NIKCUF-Unity.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RichEdd/SOAHC-NIKCUF-Unity/issues"
+  },
+  "homepage": "https://github.com/RichEdd/SOAHC-NIKCUF-Unity#readme",
+  "dependencies": {
+    "clickup-cli": "^1.0.19"
+  }
+}

@@ -155,4 +155,34 @@ Write-Host "5. Refer to notes.txt and clickup-container-tasks-reference.md for m
 Write-Host "=====================================================" -ForegroundColor Cyan
 
 Write-Host "`nPress any key to exit..."
-$null = $host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown") 
+$null = $host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
+
+# ClickUp Environment Setup Script
+# This script sets up the necessary environment variables for ClickUp integration
+
+# Function to set environment variable
+function Set-EnvironmentVariable {
+    param (
+        [string]$Name,
+        [string]$Value,
+        [string]$Scope = "User"
+    )
+    
+    [System.Environment]::SetEnvironmentVariable($Name, $Value, $Scope)
+    Write-Host "Set environment variable: $Name"
+}
+
+# Get ClickUp API Token
+$apiToken = Read-Host -Prompt "Enter your ClickUp API Token"
+if ($apiToken) {
+    Set-EnvironmentVariable -Name "CLICKUP_API_TOKEN" -Value $apiToken
+}
+
+# Get ClickUp Team ID
+$teamId = Read-Host -Prompt "Enter your ClickUp Team ID"
+if ($teamId) {
+    Set-EnvironmentVariable -Name "CLICKUP_TEAM_ID" -Value $teamId
+}
+
+Write-Host "`nClickUp environment variables have been set up successfully."
+Write-Host "Please restart your terminal for the changes to take effect." 

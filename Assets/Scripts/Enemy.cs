@@ -97,7 +97,7 @@ public class Enemy : MonoBehaviour, IDamageable, IElementalEffect
         
         // Apply movement (with ice slow effect if applicable)
         float currentSpeed = isFrozen ? moveSpeed * (1 - iceSlowFactor) : moveSpeed;
-        rb.velocity = direction * currentSpeed;
+        rb.linearVelocity = direction * currentSpeed;
         
         // Flip sprite based on movement direction
         if (direction.x > 0)
@@ -263,7 +263,7 @@ public class Enemy : MonoBehaviour, IDamageable, IElementalEffect
             animator.SetTrigger("Die");
             
             // Disable components
-            rb.velocity = Vector2.zero;
+            rb.linearVelocity = Vector2.zero;
             GetComponent<Collider2D>().enabled = false;
             this.enabled = false;
             
