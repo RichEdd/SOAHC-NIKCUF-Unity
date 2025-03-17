@@ -1,0 +1,21 @@
+name: Create Jira Task
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  create-jira-task:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create Jira Task
+        uses: atlassian/gajira-create@v3
+        with:
+          project: 'CPG'  # Your Jira project key
+          issuetype: 'Task'
+          summary: ${{ github.event.issue.title }}
+          description: ${{ github.event.issue.body }}
+        env:
+          JIRA_BASE_URL: ${{ secrets.JIRA_BASE_URL }}
+          JIRA_USER_EMAIL: ${{ secrets.JIRA_USER_EMAIL }}
+          JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }} 
