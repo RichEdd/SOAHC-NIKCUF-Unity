@@ -93,4 +93,107 @@ When working with this repository:
 
 ## Contributing
 
-This project is in early development. Contribution guidelines will be established as the project progresses. 
+This project is in early development. Contribution guidelines will be established as the project progresses.
+
+====================================================
+SOAHC-NIKCUF-UNITY PROJECT - DEVELOPMENT NOTES
+====================================================
+
+CURRENT STATUS (Updated: 2025-03-17)
+----------------------------------------------------
+- Successfully set up GitHub repository for the project
+- Integrated GitHub with ClickUp for task management
+- Created container tasks in ClickUp with CONTAINERS status for categorizing commits
+- Established workflow statuses: CONTAINERS, Backlog, In Progress, Complete
+- Created scripts for managing and testing the ClickUp-GitHub integration
+- Created initial tasks in ClickUp for project setup and core features
+
+CLICKUP CONTAINER TASKS
+----------------------------------------------------
+| Category                 | Task ID     |
+|--------------------------|-------------|
+| Bug Fixes                | #86a7a1ddr  |
+| Features                 | #86a7a1ddt  |
+| Refactors                | #86a7a1ddv  |
+| Performance Optimizations| #86a7a1ddw  |
+| UI/UX Improvements       | #86a7a1ddy  |
+| Art & Assets             | #86a7a1ddz  |
+| Audio                    | #86a7a1de0  |
+| Documentation            | #86a7a1de1  |
+
+INITIAL TASKS
+----------------------------------------------------
+| Task                                      | Task ID     | Status  |
+|-------------------------------------------|-------------|---------|
+| Set up Unity project with appropriate settings | #86a7a1dwk | Backlog |
+| Create .gitignore for Unity               | #86a7a1dwm | Backlog |
+| Create initial scene structure            | #86a7a1dwn | Backlog |
+| Implement basic player controller         | #86a7a1dwp | Backlog |
+| Set up camera system                      | #86a7a1dwr | Backlog |
+| Create main menu UI                       | #86a7a1dwt | Backlog |
+| Implement in-game HUD                     | #86a7a1dwu | Backlog |
+
+NEXT STEPS
+----------------------------------------------------
+1. PROJECT SETUP
+   - Create initial Unity project structure
+   - Set up .gitignore for Unity
+   - Configure Unity project settings
+   - Create initial scene structure
+
+2. CORE GAMEPLAY FEATURES
+   - Define core gameplay mechanics
+   - Implement player controller
+   - Set up basic enemy AI
+   - Create initial level design
+
+3. ASSET INTEGRATION
+   - Import and organize art assets
+   - Set up audio system
+   - Implement UI framework
+
+4. DEVELOPMENT WORKFLOW
+   - Create actual tasks in ClickUp with Backlog status ✓
+   - Prioritize tasks for first development sprint
+   - Establish coding standards and documentation practices
+
+IMMEDIATE ACTIONS
+----------------------------------------------------
+1. Begin working on task #86a7a1dwk: Set up Unity project with appropriate settings
+   - Use Unity version 2022.3 LTS or newer
+   - Configure for 3D development
+   - Set up appropriate project settings
+
+2. Move to task #86a7a1dwm: Create .gitignore for Unity
+   - Use standard Unity .gitignore template
+   - Customize for project-specific needs
+
+3. Continue with remaining tasks in priority order
+   - Update task status in ClickUp as you progress
+   - Link commits to appropriate container tasks
+
+COMMIT GUIDELINES
+----------------------------------------------------
+Always include the appropriate container task ID in your commit messages:
+
+- Bug fixes: "Fix [description] #86a7a1ddr"
+- New features: "Add [feature] #86a7a1ddt"
+- Code refactoring: "Refactor [component] #86a7a1ddv"
+- Performance improvements: "Optimize [system] #86a7a1ddw"
+- UI/UX changes: "Update [UI element] #86a7a1ddy"
+- Art & assets: "Add [asset] #86a7a1ddz"
+- Audio: "Add/Update [audio] #86a7a1de0"
+- Documentation: "Document [feature] #86a7a1de1"
+
+RESOURCES
+----------------------------------------------------
+- ClickUp workspace: https://app.clickup.com/
+- GitHub repository: https://github.com/RichEdd/SOAHC-NIKCUF-Unity
+- Unity documentation: https://docs.unity3d.com/
+- ClickUp-GitHub integration reference: clickup-container-tasks-reference.md
+
+NOTES
+----------------------------------------------------
+- Remember to regularly pull changes before starting work
+- Test the ClickUp integration periodically to ensure it's working
+- Keep this notes file updated with current progress and plans 
